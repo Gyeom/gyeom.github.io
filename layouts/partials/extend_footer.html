@@ -1,0 +1,15 @@
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+  const isDark = document.body.classList.contains('dark') ||
+                 document.documentElement.getAttribute('data-theme') === 'dark';
+
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: isDark ? 'dark' : 'default',
+    securityLevel: 'loose'
+  });
+
+  // 이미 로드된 페이지에서 mermaid 다시 렌더링
+  mermaid.run();
+</script>

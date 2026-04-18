@@ -1,0 +1,96 @@
+baseURL = 'https://gyeom.github.io/'
+languageCode = 'ko-kr'
+title = 'Dev Notes'
+theme = 'PaperMod'
+
+# 빌드 설정
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+# 페이지네이션
+[pagination]
+  pagerSize = 10
+
+[params]
+  env = "production"
+  author = "Gyeom"
+  description = "개발 노트 및 기술 문서"
+  keywords = ["개발", "프로그래밍", "기술 블로그", "TIL", "Hugo"]
+
+  # 테마 모드 (auto, light, dark)
+  defaultTheme = "auto"
+
+  # 검색 기능
+  fuseOpts = { isCaseSensitive = false, shouldSort = true, location = 0, distance = 1000, threshold = 0.4, minMatchCharLength = 0, keys = ["title", "permalink", "summary", "content"] }
+
+  # Open Graph / Twitter Cards
+  images = ["/images/og-default.png"]
+
+  # 홈페이지 설정
+  [params.homeInfoParams]
+    Title = "Dev Notes"
+    Content = "개발하면서 배운 것들을 기록합니다."
+
+  # 소셜 아이콘
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/Gyeom"
+
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+
+# 메뉴 설정
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 40
+
+# 검색 페이지 출력 설정
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# 마크다운 설정
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    style = "monokai"
+
+  [markup.goldmark.renderer]
+    unsafe = true
+
+  [markup.goldmark.parser.attribute]
+    block = true
+    title = true
+
+# Sitemap 설정
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+# Minify 설정 - XML(sitemap)은 줄바꿈 유지 (Google Search Console 호환성)
+[minify]
+  disableXML = true
+
+# RSS 설정
+[services.rss]
+  limit = 20
